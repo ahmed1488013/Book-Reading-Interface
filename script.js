@@ -1,45 +1,14 @@
-// تغيير حجم الخط
-const fontSizeSlider = document.getElementById('font-size-slider');
-const readingArea = document.getElementById('reading-area');
+// Function to adjust font size based on user selection
+function adjustFontSize() {
+  const fontSize = document.getElementById("font-size").value;
+  const bookText = document.getElementById("book-text");
+  bookText.style.fontSize = fontSize;
+}
 
-fontSizeSlider.addEventListener('input', (e) => {
-  readingArea.style.fontSize = `${e.target.value}px`;
-});
-
-// تغيير لون الخلفية
-const creamBg = document.getElementById('cream-bg');
-const whiteBg = document.getElementById('white-bg');
-const nightMode = document.getElementById('night-mode');
-
-creamBg.addEventListener('click', () => {
-  document.body.style.backgroundColor = '#FAF3E0';
-  document.body.style.color = '#2E2E2E';
-});
-
-whiteBg.addEventListener('click', () => {
-  document.body.style.backgroundColor = '#FFFFFF';
-  document.body.style.color = '#2E2E2E';
-});
-
-nightMode.addEventListener('click', () => {
-  document.body.style.backgroundColor = '#2E2E2E';
-  document.body.style.color = '#FAF3E0';
-});
-
-// عرض وإخفاء نافذة الإعدادات
-const settingsBtn = document.getElementById('settings-btn');
-const settingsFooterBtn = document.getElementById('settings-footer-btn');
-const settingsModal = document.getElementById('settings-modal');
-const closeSettings = document.getElementById('close-settings');
-
-settingsBtn.addEventListener('click', () => {
-  settingsModal.style.display = 'flex';
-});
-
-settingsFooterBtn.addEventListener('click', () => {
-  settingsModal.style.display = 'flex';
-});
-
-closeSettings.addEventListener('click', () => {
-  settingsModal.style.display = 'none';
-});
+// Function to adjust background color based on user selection
+function adjustBackgroundColor() {
+  const backgroundColor = document.getElementById("background-color").value;
+  document.body.style.backgroundColor = backgroundColor;
+  // Apply a soft transition to make the change smoother
+  document.querySelector('.container').style.background = backgroundColor === '#FFFFFF' ? 'linear-gradient(135deg, #FAF3E0, #E0F7FA)' : '#FAF3E0';
+}
